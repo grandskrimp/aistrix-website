@@ -1,5 +1,4 @@
 import {
-  AlertCircle,
   ArrowRight,
   BarChart3,
   BellRing,
@@ -8,11 +7,9 @@ import {
   Check,
   CheckCircle2,
   ChevronDown,
-  ClipboardList,
   Clock3,
   Code2,
   FileText,
-  Globe,
   LayoutDashboard,
   LayoutTemplate,
   Mail,
@@ -29,18 +26,14 @@ import {
   ShoppingCart,
   Smartphone,
   Sparkles,
-  Star,
   Target,
-  TrendingUp,
   UserRound,
   Workflow,
   Wrench,
   X,
-  Zap,
 } from "lucide-react";
 
 const icons = {
-  AlertCircle,
   ArrowRight,
   BarChart3,
   BellRing,
@@ -49,11 +42,9 @@ const icons = {
   Check,
   CheckCircle2,
   ChevronDown,
-  ClipboardList,
   Clock3,
   Code2,
   FileText,
-  Globe,
   LayoutDashboard,
   LayoutTemplate,
   Mail,
@@ -70,14 +61,11 @@ const icons = {
   ShoppingCart,
   Smartphone,
   Sparkles,
-  Star,
   Target,
-  TrendingUp,
   UserRound,
   Workflow,
   Wrench,
   X,
-  Zap,
 };
 
 export default function Icon({ name, className = "h-5 w-5", strokeWidth = 2 }) {

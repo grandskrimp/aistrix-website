@@ -672,7 +672,7 @@ export const pricingPlans = [
       "юридические страницы",
       "инструкция для клиента",
     ],
-    popular: false,
+    popular: true,
   },
   {
     title: "Digital Growth",
@@ -688,7 +688,7 @@ export const pricingPlans = [
       "интеграция заявок",
       "поддержка после запуска",
     ],
-    popular: true,
+    popular: false,
   },
   {
     title: "IT / Automation",

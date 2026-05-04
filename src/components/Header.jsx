@@ -19,17 +19,17 @@ export default function Header() {
     );
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-white/85 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-2xl">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent" />
+    <header className="sticky top-0 z-50 border-b border-white/60 bg-white/70 shadow-[0_12px_40px_rgba(16,34,71,0.10)] backdrop-blur-2xl">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
+      <div className="pointer-events-none absolute -top-24 left-1/4 h-48 w-1/2 bg-[radial-gradient(circle,rgba(124,58,237,0.18),transparent_60%)]" />
       <div className="container-page relative">
         <div className="flex h-20 items-center justify-between gap-4">
-          <Link to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 via-cyan-500 to-violet-600 text-white shadow-[0_10px_24px_rgba(37,99,235,0.30)]">
-              <Icon name="Sparkles" className="h-5 w-5" />
-            </div>
-            <span className="hidden text-lg font-semibold tracking-tight text-ink sm:inline">
-              {brand.brandName}
-            </span>
+          <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+            <img
+              src={brand.logoPath}
+              alt={`${brand.brandName} logo`}
+              className="h-auto w-[156px] object-contain drop-shadow-sm sm:w-[188px]"
+            />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">

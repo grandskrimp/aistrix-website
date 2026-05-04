@@ -17,39 +17,16 @@ import {
   cases,
   deliverables,
   faqItems,
+  heroHighlights,
   needs,
   painPoints,
   processSteps,
   services,
   stats,
+  trustBadges,
 } from "../data/siteData.js";
 import { brand } from "../data/brand.js";
 import { trackEvent, trackingEvents } from "../components/analytics/tracking.js";
-
-const heroFloatingCards = [
-  { title: "Сайт", icon: "Globe", desc: "Адаптив, скорость, формы", color: "from-blue-500/30 to-blue-700/10" },
-  { title: "SEO", icon: "Search", desc: "Базовая структура и теги", color: "from-cyan-400/30 to-cyan-700/10" },
-  { title: "Реклама", icon: "Target", desc: "Подготовка посадочных", color: "from-violet-500/30 to-violet-700/10" },
-  { title: "CRM", icon: "Workflow", desc: "Заявки в нужный канал", color: "from-blue-500/30 to-violet-600/10" },
-  { title: "AI", icon: "Sparkles", desc: "Авто-сценарии и ассистенты", color: "from-cyan-400/30 to-violet-500/10" },
-];
-
-const heroBadges = [
-  "Сайты под ключ",
-  "SEO-база",
-  "Реклама и аналитика",
-  "CRM и заявки",
-  "Поддержка после запуска",
-];
-
-const systemElements = [
-  { title: "Сайт", icon: "Globe", text: "Структура, дизайн, адаптив, скорость." },
-  { title: "Формы заявок", icon: "ClipboardList", text: "Короткий путь до заявки, валидация, антиспам." },
-  { title: "Telegram / Email / CRM", icon: "Workflow", text: "Заявки приходят туда, где их обрабатывают." },
-  { title: "Аналитика", icon: "BarChart3", text: "GA / GTM, события форм, кнопок и квиза." },
-  { title: "SEO-база", icon: "Search", text: "Title, description, URL, sitemap, robots.txt." },
-  { title: "Реклама", icon: "Target", text: "Посадочные, офферы, события для рекламных целей." },
-];
 
 export default function Home() {
   return (
@@ -59,145 +36,122 @@ export default function Home() {
         description="AiStrix Digital создает сайты, лендинги, интернет-магазины, SEO-базу, рекламную подготовку, CRM-интеграции и digital-решения для роста бизнеса."
       />
 
-      {/* ========== HERO (DARK) ========== */}
-      <section className="relative isolate overflow-hidden bg-navy">
-        <div className="absolute inset-0 bg-dark-gradient" />
-        <div className="absolute inset-0 bg-dark-radial opacity-90" />
-        <div className="absolute inset-0 grid-radial opacity-60" />
-        <div
-          className="absolute inset-0 opacity-20 mix-blend-screen"
-          style={{
-            backgroundImage: `url(${brand.heroBackgroundPath})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className="pointer-events-none absolute -left-32 top-24 h-96 w-96 rounded-full bg-blue-600/30 blur-[120px]" />
-        <div className="pointer-events-none absolute -right-24 top-1/3 h-[28rem] w-[28rem] rounded-full bg-violet-600/25 blur-[140px]" />
-        <div className="pointer-events-none absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-cyan-500/20 blur-[120px]" />
-
-        <div className="container-page relative py-20 sm:py-24 lg:py-32">
-          <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <section
+        className="relative min-h-[calc(100vh-80px)] overflow-hidden border-b border-blue-100/70"
+        style={{
+          backgroundImage: `linear-gradient(95deg, rgba(232,238,249,0.92) 0%, rgba(232,238,249,0.74) 45%, rgba(232,238,249,0.18) 100%), url(${brand.heroBackgroundPath})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_25%_25%,rgba(37,99,235,0.18),transparent_34rem)]" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-2/3 w-2/3 bg-[radial-gradient(circle_at_70%_70%,rgba(6,182,212,0.20),transparent_32rem)]" />
+        <div className="container-page relative py-16 sm:py-20 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
-              <span className="eyebrow-dark">
+              <span className="eyebrow">
                 <Icon name="Sparkles" className="h-4 w-4" />
-                Premium digital & IT studio
+                {brand.tagline}
               </span>
-              <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[64px]">
-                Создаём сайты и{" "}
-                <span className="text-gradient">digital-системы</span>,<br className="hidden sm:block" />
-                которые приводят заявки
+              <h1 className="mt-6 max-w-5xl text-4xl font-semibold tracking-normal text-ink sm:text-5xl lg:text-6xl">
+                Создаём сайты и digital-системы, которые помогают бизнесу получать клиентов
               </h1>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-                AiStrix Digital разрабатывает сайты, лендинги, интернет-магазины,
-                подключает аналитику, заявки, рекламу и CRM — чтобы сайт был не просто
-                красивым, а работал как инструмент продаж.
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-graphite">
+                AiStrix Digital разрабатывает сайты, лендинги, интернет-магазины и решения
+                для продвижения бизнеса. Мы начинаем с сильной веб-разработки и строим
+                полноценную digital / IT-компанию для роста клиентов.
               </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button
                   to="/#quiz"
                   size="lg"
                   onClick={() => trackEvent(trackingEvents.mainCtaClick, { placement: "home_hero" })}
                 >
-                  Рассчитать стоимость проекта <Icon name="ArrowRight" className="h-5 w-5" />
+                  {brand.mainCTA} <Icon name="ArrowRight" className="h-5 w-5" />
                 </Button>
-                <Button to="/audit" variant="light" size="lg">
-                  Получить бесплатный аудит
+                <Button to="/services" variant="secondary" size="lg">
+                  Посмотреть услуги
                 </Button>
               </div>
-              <div className="mt-9 flex flex-wrap gap-2.5">
-                {heroBadges.map((badge) => (
+              <div className="mt-8 flex flex-wrap gap-3">
+                {trustBadges.map((badge) => (
                   <span
                     key={badge}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-slate-200 backdrop-blur"
+                    className="inline-flex items-center gap-2 rounded-full border border-line bg-white/90 px-4 py-2 text-sm font-semibold text-graphite shadow-card backdrop-blur"
                   >
-                    <Icon name="CheckCircle2" className="h-3.5 w-3.5 text-cyan-400" />
+                    <Icon name="CheckCircle2" className="h-4 w-4 text-blue-600" />
                     {badge}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* Floating cards mock */}
             <div className="relative">
-              <div className="luxury-surface p-5 sm:p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-                      Digital growth system
-                    </p>
-                    <h2 className="mt-2 text-2xl font-semibold text-white">AiStrix Stack</h2>
-                  </div>
-                  <span className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-300">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
-                    Live
-                  </span>
-                </div>
-
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  {heroFloatingCards.slice(0, 4).map((c, i) => (
-                    <div
-                      key={c.title}
-                      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${c.color} p-4 backdrop-blur-md transition hover:border-white/20 ${
-                        i % 2 === 0 ? "animate-floaty" : "animate-floaty-slow"
-                      }`}
-                    >
-                      <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-white/5 blur-2xl" />
-                      <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white ring-1 ring-white/15">
-                        <Icon name={c.icon} className="h-5 w-5" />
-                      </div>
-                      <p className="mt-3 text-base font-semibold text-white">{c.title}</p>
-                      <p className="mt-1 text-xs leading-5 text-slate-300">{c.desc}</p>
+              <div className="absolute -left-8 top-8 hidden h-28 w-28 rounded-full bg-cyan-300/30 blur-3xl lg:block" />
+              <div className="absolute -right-8 bottom-8 hidden h-32 w-32 rounded-full bg-violet-400/30 blur-3xl lg:block" />
+              <div className="luxury-surface p-4 sm:p-5">
+                <div className="blue-glass overflow-hidden rounded-[28px] p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-sm font-semibold text-cyan-200">Digital growth system</p>
+                      <h2 className="mt-2 text-3xl font-semibold">AiStrix Stack</h2>
                     </div>
-                  ))}
-                </div>
-
-                <div className="mt-3 rounded-2xl border border-white/10 bg-gradient-to-br from-cyan-400/15 via-blue-500/10 to-violet-500/15 p-4 backdrop-blur-md">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white ring-1 ring-white/15">
-                        <Icon name="Sparkles" className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-base font-semibold text-white">AI-инструменты</p>
-                        <p className="text-xs text-slate-300">Авто-сценарии, ассистенты, обработка заявок</p>
-                      </div>
-                    </div>
-                    <span className="hidden rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-cyan-200 sm:inline-flex">
-                      next
+                    <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+                      Web + Growth
                     </span>
                   </div>
+                  <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                    {heroHighlights.map((item, index) => (
+                      <div
+                        key={item}
+                        className={`rounded-2xl border p-4 ${
+                          index === 4
+                            ? "border-cyan-300/50 bg-cyan-300/16 text-white sm:col-span-2"
+                            : "border-white/12 bg-white/8 text-white"
+                        }`}
+                      >
+                        <p className="text-xs font-semibold uppercase text-white/55">Модуль</p>
+                        <p className="mt-2 text-2xl font-semibold">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-5 grid grid-cols-5 gap-2">
+                    {[72, 48, 86, 64, 92].map((height, index) => (
+                      <span
+                        key={height}
+                        className="rounded-full bg-gradient-to-t from-cyan-300 to-violet-400"
+                        style={{ height: `${height}px`, opacity: 0.42 + index * 0.08 }}
+                      />
+                    ))}
+                  </div>
                 </div>
-
-                {/* mini chart */}
-                <div className="mt-4 flex items-end gap-1.5">
-                  {[42, 60, 48, 78, 64, 92, 84].map((h, i) => (
-                    <span
-                      key={i}
-                      className="flex-1 rounded-t-md bg-gradient-to-t from-blue-500/40 via-cyan-400/60 to-violet-400/80"
-                      style={{ height: `${h * 0.6}px`, opacity: 0.5 + i * 0.06 }}
-                    />
+                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                  {heroHighlights.map((item, index) => (
+                    <div
+                      key={item}
+                      className={`rounded-[22px] border border-white/80 p-5 shadow-card backdrop-blur ${
+                        index === 4 ? "bg-brand-gradient text-white sm:col-span-2" : "bg-white/90 text-ink"
+                      }`}
+                    >
+                      <p className="text-sm font-semibold opacity-80">Направление</p>
+                      <p className="mt-2 text-2xl font-semibold">{item}</p>
+                    </div>
                   ))}
                 </div>
-                <div className="mt-2 flex items-center justify-between text-[11px] text-slate-400">
-                  <span>Заявки за неделю</span>
-                  <span className="font-semibold text-emerald-400">+38%</span>
+                <div className="mt-4 rounded-[24px] bg-white/90 p-5 shadow-card backdrop-blur">
+                  <p className="text-sm font-semibold text-blue-700">От сайта до digital-системы</p>
+                  <p className="mt-2 text-sm leading-7 text-graphite">
+                    Сначала создаем сайт, затем подключаем SEO, рекламу, аналитику,
+                    CRM, автоматизацию и AI-инструменты по мере роста бизнеса.
+                  </p>
                 </div>
-              </div>
-
-              {/* Floating accent badge */}
-              <div className="absolute -left-4 -top-4 hidden rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-semibold text-cyan-300 backdrop-blur-md sm:block">
-                <span className="mr-2 inline-flex h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
-                SaaS-grade architecture
               </div>
             </div>
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       </section>
 
-      {/* ========== STATS (LIGHT) ========== */}
-      <section className="section-mist section-space">
+      <section className="section-space">
         <div className="container-page">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {stats.map((stat) => (
@@ -207,25 +161,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== ABOUT (WHITE) ========== */}
-      <section className="section-white section-space">
+      <section className="section-band section-space">
         <div className="container-page">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <SectionTitle
               eyebrow="О компании"
               title="AiStrix Digital — digital-компания для запуска и роста бизнеса"
-              text="Мы помогаем бизнесу запускать сайты, настраивать продвижение и выстраивать систему получения заявок. Работаем с архитектурой, аналитикой, безопасностью и масштабированием."
+              text="AiStrix Digital — это digital-компания, которая помогает бизнесу запускать сайты, настраивать продвижение и выстраивать систему получения заявок. Мы начинаем с разработки сайтов, но изначально строим проект как полноценную IT-команду: с чистой архитектурой, аналитикой, безопасностью, масштабированием и поддержкой."
             />
-            <div className="premium-card relative overflow-hidden p-8 sm:p-10">
-              <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-gradient-to-br from-blue-200/50 to-violet-200/40 blur-3xl" />
-              <h3 className="text-2xl font-semibold text-ink">Команда строится вокруг результата</h3>
-              <p className="mt-5 text-base leading-8 text-body">
-                Компания основана предпринимателем, который собирает команду
-                специалистов в разработке, дизайне, рекламе, SEO и автоматизации.
-                Цель AiStrix Digital — делать не просто красивые сайты, а рабочие
-                digital-инструменты для бизнеса.
+            <div className="premium-card p-7 sm:p-8">
+              <h2 className="text-2xl font-semibold text-ink">Команда строится вокруг результата</h2>
+              <p className="mt-4 text-base leading-8 text-graphite">
+                Компания основана предпринимателем, который строит команду специалистов
+                в разработке, дизайне, рекламе, SEO и автоматизации. Цель AiStrix Digital —
+                делать не просто красивые сайты, а рабочие digital-инструменты для бизнеса.
               </p>
-              <Button to="/about" variant="secondary" className="mt-8">
+              <Button to="/about" variant="secondary" className="mt-7">
                 Подробнее о компании
               </Button>
             </div>
@@ -233,64 +184,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== SYSTEM BLOCK (ALT) ========== */}
-      <section className="section-alt section-space relative overflow-hidden">
-        <div className="pointer-events-none absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-blue-200/40 blur-[120px]" />
-        <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-violet-200/40 blur-[120px]" />
-        <div className="container-page relative">
-          <SectionTitle
-            eyebrow="Digital-система"
-            title="Сайт — это не страница, а система получения заявок"
-            text="Мы соединяем сайт, формы, аналитику, рекламу, SEO и CRM, чтобы клиент не просто видел красивый дизайн, а получал понятный путь от посетителя до заявки."
-            align="center"
-          />
-          <div className="mx-auto mt-12 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {systemElements.map((el, i) => (
-              <article
-                key={el.title}
-                className="premium-card premium-card-hover group relative overflow-hidden p-6"
-              >
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-brand-gradient opacity-80" />
-                <div className="flex items-center gap-4">
-                  <div className="icon-tile">
-                    <Icon name={el.icon} className="h-6 w-6" />
-                  </div>
-                  <span className="rounded-full border border-line bg-mist px-3 py-1 text-xs font-semibold text-muted">
-                    0{i + 1}
-                  </span>
-                </div>
-                <h3 className="mt-5 text-lg font-semibold text-ink">{el.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-body">{el.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========== DELIVERABLES (WHITE) ========== */}
-      <section className="section-white section-space">
+      <section className="section-space">
         <div className="container-page">
           <SectionTitle
             eyebrow="Результат"
             title="Что вы получаете в итоге"
             text="Сайт проектируется как часть digital-системы: заявки, аналитика, SEO, реклама, безопасность, юридическая база и дальнейшее масштабирование."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {deliverables.map((item) => (
               <article key={item.title} className="premium-card premium-card-hover p-6">
-                <div className="icon-tile-soft">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-50 text-blue-600">
                   <Icon name={item.icon} />
                 </div>
                 <h3 className="mt-5 text-lg font-semibold text-ink">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-body">{item.text}</p>
+                <p className="mt-3 text-sm leading-7 text-graphite">{item.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ========== NEEDS (MIST) ========== */}
-      <section className="section-mist section-space">
+      <section className="section-band section-space">
         <div className="container-page">
           <SectionTitle
             eyebrow="Быстрый выбор"
@@ -298,14 +213,14 @@ export default function Home() {
             text="Выберите ближайшую задачу: новый сайт, редизайн, интернет-магазин, CRM, SEO, рекламу или понятную точку старта."
             align="center"
           />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {needs.map((need) => (
               <a key={need} href="#quiz" className="premium-card premium-card-hover group p-5">
-                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-blue-50 text-blue-700 ring-1 ring-blue-100 transition group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-violet-600 group-hover:text-white group-hover:ring-transparent">
+                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
                   <Icon name="Target" />
                 </div>
                 <p className="mt-5 font-semibold text-ink">{need}</p>
-                <p className="mt-3 text-sm leading-6 text-body">
+                <p className="mt-3 text-sm leading-6 text-graphite">
                   Ответьте на вопросы квиза и получите предварительную оценку.
                 </p>
               </a>
@@ -314,15 +229,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== SERVICES (WHITE) ========== */}
-      <section className="section-white section-space">
+      <section className="section-space">
         <div className="container-page">
           <SectionTitle
             eyebrow="Услуги"
             title="Сайты, продвижение и digital-решения"
             text="Сегодня фокус на разработке сайтов. Следующий уровень — SEO, реклама, CRM, автоматизация, аналитика и AI-инструменты."
           />
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
@@ -330,33 +244,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== PAIN POINTS (MIST) ========== */}
-      <section className="section-mist section-space">
+      <QualityRulesSection />
+
+      <section className="section-space">
         <div className="container-page">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
               <SectionTitle
                 eyebrow="Аудит"
-                title="Почему сайт может не приносить заявки"
+                title="Почему сайт может не продавать"
                 text="Иногда проблема не в рекламе, а в первом экране, мобильной версии, доверии, форме, скорости или отсутствии аналитики."
               />
               <Button to="/audit" className="mt-8">
-                Проверить мой сайт бесплатно <Icon name="ArrowRight" className="h-4 w-4" />
+                Проверить мой сайт <Icon name="ArrowRight" className="h-4 w-4" />
               </Button>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              {painPoints.map((point, i) => (
-                <div key={point} className="premium-card premium-card-hover p-5">
-                  <div className="flex items-start gap-3">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-rose-50 to-amber-50 text-rose-500 ring-1 ring-rose-100">
-                      <Icon name="AlertCircle" className="h-4 w-4" />
-                    </span>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted">
-                        Проблема 0{i + 1}
-                      </p>
-                      <p className="mt-1 text-sm leading-7 text-ink">{point}</p>
-                    </div>
+              {painPoints.map((point) => (
+                <div key={point} className="premium-card p-5">
+                  <div className="flex gap-3">
+                    <Icon name="Search" className="mt-1 h-5 w-5 shrink-0 text-blue-600" />
+                    <p className="text-sm leading-7 text-graphite">{point}</p>
                   </div>
                 </div>
               ))}
@@ -365,22 +273,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== BEFORE / AFTER (WHITE) ========== */}
-      <section className="section-white section-space">
+      <section className="section-band section-space">
         <div className="container-page">
           <SectionTitle
             eyebrow="До / После"
             title="Как меняется сайт после системной работы"
             text="Мы обновляем не только визуал. Важно, чтобы сайт объяснял предложение, вызывал доверие, собирал заявки и был готов к рекламе."
           />
-          <div className="mt-12">
+          <div className="mt-10">
             <BeforeAfterBlock />
           </div>
         </div>
       </section>
 
-      {/* ========== CASES (ALT) ========== */}
-      <section className="section-alt section-space">
+      <section className="section-space">
         <div className="container-page">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <SectionTitle
@@ -392,7 +298,7 @@ export default function Home() {
               Посмотреть кейсы
             </Button>
           </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {cases.slice(0, 3).map((item) => (
               <CaseCard key={item.id} item={item} />
             ))}
@@ -400,48 +306,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== QUALITY RULES (MIST) ========== */}
-      <QualityRulesSection />
-
-      {/* ========== PROCESS (WHITE) ========== */}
-      <section className="section-white section-space">
+      <section className="section-band section-space">
         <div className="container-page">
           <SectionTitle
             eyebrow="Процесс"
             title="Краткий путь от идеи до запуска"
             text="Каждый этап связан с результатом: структура, дизайн, разработка, мобильная версия, формы, SEO, аналитика, проверка и поддержка."
           />
-          <div className="mt-12">
+          <div className="mt-10">
             <ProcessTimeline steps={processSteps.slice(0, 6)} />
           </div>
         </div>
       </section>
 
-      {/* ========== AUDIT (DARK) ========== */}
       <section
         id="audit"
-        className="relative isolate overflow-hidden bg-navy section-space"
+        className="section-space"
+        style={{
+          backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.96), rgba(255,255,255,0.82)), url(${brand.ctaBackgroundPath})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <div className="absolute inset-0 bg-dark-gradient" />
-        <div className="absolute inset-0 bg-dark-radial opacity-70" />
-        <div
-          className="absolute inset-0 opacity-15 mix-blend-screen"
-          style={{
-            backgroundImage: `url(${brand.ctaBackgroundPath})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className="container-page relative">
-          <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+        <div className="container-page">
+          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div>
-              <span className="eyebrow-dark">Бесплатный аудит</span>
-              <h2 className="mt-5 text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">
+              <span className="eyebrow">Бесплатный аудит</span>
+              <h2 className="mt-5 text-3xl font-semibold text-ink sm:text-4xl">
                 Бесплатно проверим ваш сайт и покажем, что мешает заявкам
               </h2>
-              <p className="mt-5 text-lg leading-8 text-slate-300">
-                Проверим {auditChecks.slice(0, 6).join(", ")} и дадим короткие
-                рекомендации, что можно усилить перед рекламой, SEO или редизайном.
+              <p className="mt-5 text-lg leading-8 text-graphite">
+                Проверим {auditChecks.slice(0, 6).join(", ")} и дадим короткие рекомендации,
+                что можно усилить перед рекламой, SEO или редизайном.
               </p>
             </div>
             <AuditForm showEmail={false} />
@@ -449,8 +345,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== QUIZ (MIST) ========== */}
-      <section id="quiz" className="section-mist section-space">
+      <section id="quiz" className="section-band section-space">
         <div className="container-page">
           <SectionTitle
             eyebrow="Квиз"
@@ -458,16 +353,15 @@ export default function Home() {
             text="Ответьте на несколько вопросов: тип проекта, цель, материалы, сроки и контакты. После подключения backend квиз можно отправлять в Telegram, email или CRM."
             align="center"
           />
-          <div className="mx-auto mt-12 max-w-5xl">
+          <div className="mx-auto mt-10 max-w-5xl">
             <CostQuiz />
           </div>
         </div>
       </section>
 
-      {/* ========== FAQ (WHITE) ========== */}
-      <section className="section-white section-space">
+      <section className="section-space">
         <div className="container-page">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <SectionTitle
               eyebrow="FAQ"
               title="Ответы на частые вопросы"
@@ -478,7 +372,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== FINAL CTA (DARK inside CTASection) ========== */}
       <CTASection
         title="Хотите сайт, который станет частью digital-системы продаж?"
         text="Заполните квиз или отправьте заявку. Команда предложит структуру, сроки, бюджет и следующий шаг."

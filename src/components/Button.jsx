@@ -3,14 +3,12 @@ import { cn } from "../utils/cn.js";
 
 const variants = {
   primary:
-    "bg-brand-gradient text-white shadow-[0_18px_42px_rgba(37,99,235,0.32)] ring-1 ring-white/20 hover:-translate-y-0.5 hover:shadow-[0_28px_70px_rgba(37,99,235,0.45)]",
+    "bg-brand-gradient text-white shadow-[0_18px_42px_rgba(37,99,235,0.28)] ring-1 ring-white/20 hover:-translate-y-0.5 hover:shadow-[0_26px_70px_rgba(37,99,235,0.30)]",
   secondary:
-    "border border-line bg-white text-ink shadow-card hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700 hover:shadow-[0_20px_50px_rgba(37,99,235,0.16)]",
+    "border border-blue-100 bg-white/90 text-ink shadow-card backdrop-blur hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-700 hover:shadow-[0_20px_60px_rgba(37,99,235,0.14)]",
   ghost:
     "bg-transparent text-blue-700 hover:bg-blue-50",
-  dark: "bg-navy text-white shadow-card hover:-translate-y-0.5 hover:bg-deep",
-  light:
-    "border border-white/20 bg-white/[0.06] text-white backdrop-blur-md hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/[0.12]",
+  dark: "bg-ink text-white shadow-card hover:-translate-y-0.5 hover:bg-slate-800",
 };
 
 const sizes = {
