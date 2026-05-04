@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #151923;
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(37, 99, 235, 0.12), transparent 30rem),
+    radial-gradient(circle at 86% 18%, rgba(124, 58, 237, 0.11), transparent 28rem),
+    linear-gradient(180deg, #f7fbff 0%, #ffffff 38%, #f3f7ff 100%);
+}
+
+::selection {
+  color: #ffffff;
+  background: #2563eb;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .section-space {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .premium-card {
+    @apply rounded-[28px] border border-white/75 bg-white/90 shadow-[0_18px_60px_rgba(16,34,71,0.10)] backdrop-blur-xl transition duration-300;
+  }
+
+  .premium-card-hover {
+    @apply hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_70px_rgba(37,99,235,0.18)];
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-blue-100/80 bg-white/80 px-4 py-2 text-sm font-semibold text-blue-700 shadow-card backdrop-blur-xl;
+  }
+
+  .input-shell {
+    @apply w-full rounded-2xl border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100;
+  }
+
+  .luxury-surface {
+    @apply relative overflow-hidden rounded-[32px] border border-white/75 bg-white/80 shadow-[0_24px_90px_rgba(16,34,71,0.14)] backdrop-blur-xl;
+  }
+
+  .blue-glass {
+    @apply border border-white/15 bg-slate-950/75 text-white shadow-[0_28px_90px_rgba(15,23,42,0.28)] backdrop-blur-xl;
+  }
+
+  .section-band {
+    @apply relative overflow-hidden border-y border-blue-100/70 bg-[linear-gradient(135deg,rgba(239,246,255,0.92),rgba(255,255,255,0.88),rgba(245,243,255,0.86))];
+  }
+}
