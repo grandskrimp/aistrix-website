@@ -18,10 +18,15 @@ html {
 body {
   min-width: 320px;
   margin: 0;
-  background:
-    radial-gradient(circle at 14% 0%, rgba(37, 99, 235, 0.12), transparent 30rem),
-    radial-gradient(circle at 86% 18%, rgba(124, 58, 237, 0.11), transparent 28rem),
-    linear-gradient(180deg, #f7fbff 0%, #ffffff 38%, #f3f7ff 100%);
+  background-color: #e8eef9;
+  background-image:
+    radial-gradient(circle at 12% -4%, rgba(37, 99, 235, 0.32), transparent 34rem),
+    radial-gradient(circle at 92% 6%, rgba(124, 58, 237, 0.28), transparent 32rem),
+    radial-gradient(circle at 50% 38%, rgba(6, 182, 212, 0.18), transparent 40rem),
+    radial-gradient(circle at 8% 78%, rgba(124, 58, 237, 0.18), transparent 36rem),
+    radial-gradient(circle at 92% 92%, rgba(37, 99, 235, 0.22), transparent 36rem),
+    linear-gradient(180deg, #e6ecf8 0%, #eef2fb 30%, #e9eff9 60%, #ecf0fa 100%);
+  background-attachment: fixed;
 }
 
 ::selection {

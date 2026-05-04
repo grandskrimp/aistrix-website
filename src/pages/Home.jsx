@@ -37,9 +37,9 @@ export default function Home() {
       />
 
       <section
-        className="relative min-h-[calc(100vh-80px)] overflow-hidden border-b border-blue-100/70 bg-white"
+        className="relative min-h-[calc(100vh-80px)] overflow-hidden border-b border-blue-100/70"
         style={{
-          backgroundImage: `linear-gradient(90deg, rgba(248,251,255,0.94) 0%, rgba(248,251,255,0.76) 43%, rgba(248,251,255,0.18) 100%), url(${brand.heroBackgroundPath})`,
+          backgroundImage: `linear-gradient(95deg, rgba(232,238,249,0.92) 0%, rgba(232,238,249,0.74) 45%, rgba(232,238,249,0.18) 100%), url(${brand.heroBackgroundPath})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

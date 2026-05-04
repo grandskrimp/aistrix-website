@@ -12,13 +12,17 @@ export default function Header() {
 
   const navClass = ({ isActive }) =>
     cn(
-      "rounded-xl px-3 py-2 text-sm font-semibold transition",
-      isActive ? "bg-blue-50 text-blue-700" : "text-graphite hover:bg-slate-50 hover:text-ink",
+      "relative rounded-xl px-3.5 py-2 text-sm font-semibold transition-all duration-200",
+      isActive
+        ? "bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-[0_8px_22px_rgba(37,99,235,0.32)]"
+        : "text-graphite hover:bg-white hover:text-blue-700 hover:shadow-[0_6px_18px_rgba(37,99,235,0.10)]",
     );
 
   return (
-    <header className="sticky top-0 z-50 border-b border-blue-100/70 bg-white/80 shadow-[0_10px_35px_rgba(16,34,71,0.06)] backdrop-blur-2xl">
-      <div className="container-page">
+    <header className="sticky top-0 z-50 border-b border-white/60 bg-white/70 shadow-[0_12px_40px_rgba(16,34,71,0.10)] backdrop-blur-2xl">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
+      <div className="pointer-events-none absolute -top-24 left-1/4 h-48 w-1/2 bg-[radial-gradient(circle,rgba(124,58,237,0.18),transparent_60%)]" />
+      <div className="container-page relative">
         <div className="flex h-20 items-center justify-between gap-4">
           <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
             <img
@@ -28,9 +32,9 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex">
+          <nav className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => (
-              <NavLink key={item.path} to={item.path} className={navClass}>
+              <NavLink key={item.path} to={item.path} className={navClass} end={item.path === "/"}>
                 {item.label}
               </NavLink>
             ))}
@@ -48,7 +52,7 @@ export default function Header() {
 
           <button
             type="button"
-            className="grid h-11 w-11 place-items-center rounded-2xl border border-line bg-white text-ink xl:hidden"
+            className="grid h-11 w-11 place-items-center rounded-2xl border border-blue-100 bg-white/90 text-ink shadow-[0_8px_22px_rgba(37,99,235,0.14)] transition hover:border-blue-300 hover:text-blue-700 lg:hidden"
             onClick={() => setIsOpen((value) => !value)}
             aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
           >
@@ -57,13 +61,14 @@ export default function Header() {
         </div>
 
         {isOpen && (
-          <div className="border-t border-line py-4 xl:hidden">
+          <div className="border-t border-blue-100/70 py-4 lg:hidden">
             <nav className="grid gap-2 sm:grid-cols-2">
               {navItems.map((item) => (
                 <NavLink
                   key={item.path}
                   to={item.path}
                   className={navClass}
+                  end={item.path === "/"}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
